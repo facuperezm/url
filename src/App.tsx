@@ -11,6 +11,8 @@ function App() {
       .post("http://localhost:3000/api/v1/shortenurl/create", { url: url })
       .then((response) => {
         console.log(response);
+
+        console.log(response.data.shortenedUrl);
         setShortenedUrl(response.data.shortenedUrl);
       })
       .catch((error) => console.log("error", error));
