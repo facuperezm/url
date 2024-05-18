@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import Input from "./components/Input/Input";
+import Skeleton from "./components/Skeleton/Skeleton";
 
 function App() {
   const [url, setUrl] = React.useState("");
@@ -10,29 +12,39 @@ function App() {
     axios
       .post("http://localhost:3000/api/v1/shortenurl/create", { url: url })
       .then((response) => {
-        console.log(response);
-
-        console.log(response.data.shortenedUrl);
-        setShortenedUrl(response.data.shortenedUrl);
+        const newUrl = response.data.redirectionUrl;
+        setShortenedUrl(newUrl);
       })
       .catch((error) => console.log("error", error));
-    // console.log({ data, url, shortenedUrl });
   }
+
   return (
-    <>
-      <div>
+    <main>
+      <header>
         <h1>URL shortener</h1>
-        <p>Shortened URL: {shortenedUrl}</p>
-        <form onSubmit={handleShorten}>
-          <input
-            id="url"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-          />
-          <button type="submit">Shorten</button>
-        </form>
-      </div>
-    </>
+      </header>
+      <article>
+        <Input url={url} setUrl={setUrl} handleShorten={handleShorten} />
+        <div className="result">
+          <p className="title">Shortened URL:</p>
+          {shortenedUrl ? (
+            <a
+              className="title"
+              href={shortenedUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {shortenedUrl}
+              {shortenedUrl}
+              {shortenedUrl}
+              {shortenedUrl}
+            </a>
+          ) : (
+            <Skeleton />
+          )}
+        </div>
+      </article>
+    </main>
   );
 }
 
