@@ -24,7 +24,7 @@ The URL Shortener project aims to develop the frontend for an API that allows us
 
 ### **Technologies** 🛠️
 
-- **Frontend:** React.js
+- **Frontend:** React.js, react-hook-form, Zod
 - **Backend:** Node.js, Express.js, Prisma ORM, Jest & supertest
 - **Deployment:** Docker with internal network
 - **Database:** Postgres
