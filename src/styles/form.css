@@ -56,3 +56,11 @@ input {
   color: #646cff;
   transition: border-color 0.25s;
 }
+
+.error-message {
+  display: flex;
+  margin-top: 0.5rem;
+  margin-left: 0.8rem;
+  font-size: 0.9em;
+  color: #ff6464;
+}
